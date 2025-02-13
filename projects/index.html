@@ -1,41 +1,55 @@
 <!DOCTYPE html>
 <html>
-<div class="logo">
-    <a href="../index.html" class="nav-home">
-        <img src="../images/home.png" alt="Home">
-    </a>
-</div>
-<head>
-  <title>My Projects</title>
-  <link rel="stylesheet" href="../assets/projectstyle.css">
-</head>
-<body>
+  <head>
+    <title>My Projects</title>
+    <link rel="stylesheet" href="../assets/projectstyle.css">
+  </head>
+  <body>
 
-  <h1>My Projects</h1>
+    <!-- Logo Navigation -->
+    <div class="logo">
+      <a href="../index.html" class="nav-home">
+        <img src="../assets/images/home.png" alt="Home">
+      </a>
+    </div>
 
-  <div class="search-sort">
-    <input type="text" id="searchInput" placeholder="Search projects...">
-    <select id="sortSelect">
-      <option value="name">Sort by Name</option>
-      <option value="date">Sort by Date</option>
-    </select>
-  </div>
+    <!-- Page Title -->
+    <h1>My Projects</h1>
 
-  <ul id="projectList">
-    <li data-name="Dummy 1" data-date="2024-02-01">
-      <strong>Dummy1</strong> - Nothing
-    </li>
-    <li data-name="Dummy2" data-date="2024-02-01">
-      <strong>Dummy2</strong> - Nothing
-    </li>
-    <li data-name="Dummy3" data-date="2023-12-15">
-      <strong>Another dummy</strong> - Nothing
-    </li>
-    <li data-name="Dummy4" data-date="2024-01-20">
-      <strong>ftest</strong> - Nothing
-    </li>
-  </ul>
+    <!-- Search and Sort Section -->
+    <div class="search-sort">
+      <input type="text" id="searchInput" placeholder="Search projects...">
+      <select id="sortSelect">
+        <option value="name">Sort by Name</option>
+        <option value="date">Sort by Date</option>
+      </select>
+    </div>
 
-  <script src="script.js"></script>
-</body>
+    <!-- Project List -->
+    <ul id="projectList">
+      <li data-name="Sunrise Symphony" data-date="2024-02-01">
+        <img src="https://via.placeholder.com/80" alt="Sunrise Symphony">
+        <div class="project-info">
+          <h3>Sunrise Symphony</h3>
+          <p>A blend of nature and melody, exploring the harmony of dawn.</p>
+        </div>
+      </li>
+      <li data-name="Whispers of the Forest" data-date="2024-01-15">
+        <img src="https://via.placeholder.com/80" alt="Whispers of the Forest">
+        <div class="project-info">
+          <h3>Whispers of the Forest</h3>
+          <p>Uncover the mysteries beneath ancient trees.</p>
+        </div>
+      </li>
+      <li data-name="Stardust Voyage" data-date="2023-12-20">
+        <img src="https://via.placeholder.com/80" alt="Stardust Voyage">
+        <div class="project-info">
+          <h3>Stardust Voyage</h3>
+          <p>A cosmic journey where stars tell timeless stories.</p>
+        </div>
+      </li>
+    </ul>
+
+    <script src="../assets/script.js"></script>
+  </body>
 </html>
