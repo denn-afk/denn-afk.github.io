@@ -1,58 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
-    <link rel="stylesheet" href="assets/styles.css"> <!-- Linking the CSS file -->
+    <title>我的网站</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            padding: 20px;
+        }
+        .icon {
+            background-color: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .icon img {
+            width: 50px;
+            height: 50px;
+        }
+        .icon p {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .icon:hover {
+            transform: scale(1.1);
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Website</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#mom-paper">My Mom's Paper</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <!-- <section id="about">
-        <h2>About Me</h2>
-        <p>I My life goal is to building general intelligence and digital organisms. Meanwhile, I like to 
-            understand people's researches. Recently, I have been trying to l
-        </p>
-    </section> -->
-
-    <!-- <section id="projects">
-        <h2>My Projects</h2>
-        <div class="card-container">
-            <div class="card">
-                <h3>3D Graphics Demo</h3>
-                <p>Explore 3D rendering using JavaScript.</p>
-                <a href="projects/project1.html">View Project</a>
+    <div class="container">
+        <h2>📱 我的主页</h2>
+        <div class="grid">
+            <div class="icon" onclick="window.location.href='mom_papers/index.html'">
+                <img src="https://cdn-icons-png.flaticon.com/512/2995/2995601.png" alt="论文">
+                <p>📄 论文</p>
             </div>
-            <div class="card">
-                <h3>AI in Biology</h3>
-                <p>Using AI to understand biological processes.</p>
-                <a href="projects/project2.html">View Project</a>
+            <div class="icon" onclick="window.location.href='projects.html'">
+                <img src="https://cdn-icons-png.flaticon.com/512/833/833281.png" alt="项目">
+                <p>🚀 项目</p>
+            </div>
+            <div class="icon" onclick="window.location.href='about.html'">
+                <img src="https://cdn-icons-png.flaticon.com/512/1077/1077012.png" alt="关于">
+                <p>ℹ️ 关于</p>
             </div>
         </div>
-    </section> -->
-    <section id="experimental">
-        <h2>A page for experimenting with HTML</h2>
-        <a href="experimental_site/index.html">Visit My Experimental Site</a>
-    </section>
+    </div>
 
-    <section id="mom-paper">
-        <h2>My Mom's Paper</h2>
-        <p>Learn about a groundbreaking theory of biological reactions.</p>
-        <a href="mom_papers/index.html">Read the Papers</a>
-    </section>
-
-    <footer>
-        <p>Copyright &copy; 2025 My Website</p>
-    </footer>
 </body>
 </html>
