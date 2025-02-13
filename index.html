@@ -13,8 +13,8 @@
             padding: 0;
         }
         .container {
-            max-width: 600px; /* 宽一些 */
-            margin: 50px auto 20px auto; /* 顶部留空间 */
+            max-width: 600px;
+            margin: 50px auto 20px auto;
             padding: 20px;
         }
         .grid {
@@ -22,14 +22,14 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
             padding: 30px 20px;
-            justify-items: center; /* 水平居中 */
+            justify-items: center;
         }
         .icon {
             background-color: white;
             border-radius: 15px;
             padding: 20px;
-            width: 120px; 
-            height: 120px; 
+            width: 120px;
+            height: 120px;
             box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
             cursor: pointer;
             transition: transform 0.2s, box-shadow 0.3s;
@@ -54,6 +54,33 @@
             font-size: 24px;
             color: #333;
             margin-bottom: 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+                gap: 15px;
+            }
+            .container {
+                padding: 10px;
+                margin-top: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid {
+                grid-template-columns: 1fr; /* 1 column on phones */
+                gap: 12px;
+            }
+            .icon {
+                width: 100px;
+                height: 100px;
+                padding: 15px;
+            }
+            h2 {
+                font-size: 20px;
+            }
         }
     </style>
 </head>
