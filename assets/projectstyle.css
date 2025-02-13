@@ -20,16 +20,18 @@ h1 {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
+    flex-wrap: wrap; /* Allow inputs to wrap on smaller screens */
 }
 
 input, select {
     padding: 10px;
-    margin-right: 10px;
+    margin: 5px;
     font-size: 14px;
     border-radius: 20px;
     border: 1px solid #ccc;
     outline: none;
     transition: border-color 0.3s;
+    width: 200px;
 }
 
 input:focus, select:focus {
@@ -42,14 +44,14 @@ ul {
     padding: 0;
     margin: 0 auto;
     width: 100%;
-    max-width: 600px;
+    max-width: 700px;
 }
 
 /* Project Items */
 li {
     display: flex;
     align-items: center;
-    padding: 12px;
+    padding: 15px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 20px;
@@ -116,4 +118,67 @@ li img {
 
 .nav-home:hover {
     color: #555;
+}
+
+/* ------------------ */
+/* RESPONSIVE DESIGN */
+/* ------------------ */
+
+/* Tablets (up to 768px) */
+@media (max-width: 768px) {
+    li {
+        padding: 12px;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    input, select {
+        width: 160px;
+        font-size: 13px;
+    }
+
+    .project-info h3 {
+        font-size: 16px;
+    }
+
+    .project-info p {
+        font-size: 13px;
+    }
+}
+
+/* Mobile Phones (up to 480px) */
+@media (max-width: 480px) {
+    ul {
+        padding: 0;
+    }
+
+    li {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    li img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    .project-info h3 {
+        font-size: 15px;
+    }
+
+    .project-info p {
+        font-size: 12px;
+    }
+
+    input, select {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .search-sort {
+        flex-direction: column;
+        align-items: center;
+    }
 }
