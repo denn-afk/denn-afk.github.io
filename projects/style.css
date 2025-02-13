@@ -1,10 +1,12 @@
 body {
     font-family: Arial, sans-serif;
     padding: 20px;
+    border-radius: 20px; /* Soft round edges */
   }
   
   h1 {
     color: #333;
+    border-radius: 12px; /* Rounded heading */
   }
   
   .search-sort {
@@ -12,9 +14,11 @@ body {
   }
   
   input, select {
-    padding: 8px;
+    padding: 10px;
     margin-right: 10px;
     font-size: 14px;
+    border-radius: 20px; /* Rounded inputs */
+    border: 1px solid #ccc;
   }
   
   ul {
@@ -23,14 +27,40 @@ body {
   }
   
   li {
-    padding: 10px;
-    margin-bottom: 8px;
+    padding: 12px;
+    margin-bottom: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 20px; /* Rounded corners for items */
     transition: background-color 0.3s;
   }
   
   li:hover {
-    background-color: #f0f0f0;
+    background-color: #e0e0e0;
+  }
+  
+  /* Logo Styles */
+  .logo {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .logo img {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .nav-home {
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s;
+  }
+  
+  .nav-home:hover {
+    color: #555;
   }
   
