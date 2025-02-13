@@ -2,65 +2,64 @@ body {
     font-family: Arial, sans-serif;
     padding: 20px;
     border-radius: 20px; /* Soft round edges */
-  }
-  
-  h1 {
+}
+
+h1 {
     color: #333;
     border-radius: 12px; /* Rounded heading */
-  }
-  
-  .search-sort {
+}
+
+.search-sort {
     margin-bottom: 20px;
-  }
-  
-  input, select {
+}
+
+input, select {
     padding: 10px;
     margin-right: 10px;
     font-size: 14px;
     border-radius: 20px; /* Rounded inputs */
     border: 1px solid #ccc;
-  }
-  
-  ul {
+}
+
+ul {
     list-style-type: none;
     padding: 0;
-  }
-  
-  li {
+}
+
+li {
     padding: 12px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 20px; /* Rounded corners for items */
     transition: background-color 0.3s;
-  }
-  
-  li:hover {
+}
+
+li:hover {
     background-color: #e0e0e0;
-  }
-  
-  /* Logo Styles */
-  .logo {
+}
+
+/* Logo Styles */
+.logo {
     display: flex;
     align-items: center;
     padding: 10px;
-  }
-  
-  .logo img {
+}
+
+.logo img {
     height: 60px;
     width: 60px;
     border-radius: 50%;
     margin-right: 10px;
-  }
-  
-  .nav-home {
+}
+
+.nav-home {
     font-size: 20px;
     font-weight: bold;
     text-decoration: none;
     color: #333;
     transition: color 0.3s;
-  }
-  
-  .nav-home:hover {
+}
+
+.nav-home:hover {
     color: #555;
-  }
-  
+}
