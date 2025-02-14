@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Twisted Cubic</title>
+    <link rel="stylesheet" href="../assets/projectstyle.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  </head>
+  <body>
+
+    <!-- Logo Navigation -->
+    <div class="logo">
+      <a href="../index.html" class="nav-home">
+        <img src="../assets/images/home.png" alt="Home">
+      </a>
+    </div>
+
+    <!-- Page Title -->
+    <h1>Twisted Cubic</h1>
+
+    <!-- Input Section -->
+    <div class="search-sort">
+      <input type="text" id="funcInputX" placeholder="x(t) = t" value="t">
+      <input type="text" id="funcInputY" placeholder="y(t) = t^2" value="t**2">
+      <input type="text" id="funcInputZ" placeholder="z(t) = t^3" value="t**3">
+      <input type="number" id="startT" placeholder="Start t" value="-2">
+      <input type="number" id="endT" placeholder="End t" value="2">
+      <button onclick="plotFunction()">Plot</button>
+    </div>
+
+    <!-- Plot Section -->
+    <div id="plot" style="width:100%;height:500px;"></div>
+
+    <script>
+      function plotFunction() {
+        const funcX = document.getElementById('funcInputX').value;
+        const funcY = document.getElementById('funcInputY').value;
+        const funcZ = document.getElementById('funcInputZ').value;
+        const startT = parseFloat(document.getElementById('startT').value);
+        const endT = parseFloat(document.getElementById('endT').value);
+
+        const tValues = Array.from({ length: 100 }, (_, i) => startT + i * (endT - startT) / 99);
+        const xValues = tValues.map(t => math.evaluate(funcX, {t}));
+        const yValues = tValues.map(t => math.evaluate(funcY, {t}));
+        const zValues = tValues.map(t => math.evaluate(funcZ, {t}));
+
+        const trace = {
+          x: xValues,
+          y: yValues,
+          z: zValues,
+          mode: 'lines',
+          type: 'scatter3d',
+          line: { width: 4, color: '#1f77b4' }
+        };
+
+        const layout = {
+          title: '3D Function Plot',
+          scene: {
+            xaxis: { title: 'X' },
+            yaxis: { title: 'Y' },
+            zaxis: { title: 'Z' }
+          },
+          margin: { l: 0, r: 0, b: 0, t: 40 }
+        };
+
+        Plotly.newPlot('plot', [trace], layout);
+      }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
+  </body>
+</html>
