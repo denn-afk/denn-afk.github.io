@@ -155,17 +155,19 @@ li img {
     }
 }
 
-/* Mobile Phones (up to 480px) - NYT Style */
+/* Mobile Phones (up to 480px) - Full Width, No Margins */
 @media (max-width: 480px) {
     body {
-        padding: 10px;
+        padding: 0; /* Remove all padding */
+        margin: 0; /* Remove all margins */
+        background-color: #fff;
     }
 
     /* Make search bar stack vertically */
     .search-sort {
         flex-direction: column;
         align-items: stretch;
-        margin-bottom: 20px;
+        padding: 10px;
     }
 
     input, select {
@@ -177,6 +179,7 @@ li img {
 
     ul {
         padding: 0;
+        margin: 0;
         max-width: 100%;
     }
 
@@ -185,17 +188,17 @@ li img {
         flex-direction: column;
         align-items: flex-start;
         padding: 16px;
-        margin-bottom: 16px;
+        margin-bottom: 0; /* Remove space between items */
         background-color: #ffffff;
         border: 1px solid #dcdcdc;
-        border-radius: 15px;
-        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.07);
+        border-radius: 0; /* Remove rounded corners */
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.07);
     }
 
     li img {
         width: 100%;
         height: auto;
-        border-radius: 12px;
+        border-radius: 0;
         margin-bottom: 12px;
     }
 
