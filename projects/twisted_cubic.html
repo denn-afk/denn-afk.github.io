@@ -4,6 +4,43 @@
     <title>Twisted Cubic</title>
     <link rel="stylesheet" href="../assets/projectstyle.css">
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
+    <style>
+      /* Ensure the plot container has a visible height */
+      #plot {
+        width: 100%;
+        height: 500px;
+        border: 2px solid #ccc;
+        margin: 20px 0;
+        border-radius: 10px;
+      }
+
+      .search-sort {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      input, button {
+        padding: 8px 12px;
+        font-size: 14px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+
+      button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #45A049;
+      }
+    </style>
   </head>
   <body>
 
@@ -20,52 +57,68 @@
     <!-- Input Section -->
     <div class="search-sort">
       <input type="text" id="funcInputX" placeholder="x(t) = t" value="t">
-      <input type="text" id="funcInputY" placeholder="y(t) = t^2" value="t**2">
-      <input type="text" id="funcInputZ" placeholder="z(t) = t^3" value="t**3">
+      <input type="text" id="funcInputY" placeholder="y(t) = t²" value="t^2">
+      <input type="text" id="funcInputZ" placeholder="z(t) = t³" value="t^3">
       <input type="number" id="startT" placeholder="Start t" value="-2">
       <input type="number" id="endT" placeholder="End t" value="2">
       <button onclick="plotFunction()">Plot</button>
     </div>
 
     <!-- Plot Section -->
-    <div id="plot" style="width:100%;height:500px;"></div>
+    <div id="plot"></div>
 
+    <!-- Script Section -->
     <script>
       function plotFunction() {
-        const funcX = document.getElementById('funcInputX').value;
-        const funcY = document.getElementById('funcInputY').value;
-        const funcZ = document.getElementById('funcInputZ').value;
-        const startT = parseFloat(document.getElementById('startT').value);
-        const endT = parseFloat(document.getElementById('endT').value);
+        try {
+          const funcX = document.getElementById('funcInputX').value;
+          const funcY = document.getElementById('funcInputY').value;
+          const funcZ = document.getElementById('funcInputZ').value;
+          const startT = parseFloat(document.getElementById('startT').value);
+          const endT = parseFloat(document.getElementById('endT').value);
 
-        const tValues = Array.from({ length: 100 }, (_, i) => startT + i * (endT - startT) / 99);
-        const xValues = tValues.map(t => math.evaluate(funcX, {t}));
-        const yValues = tValues.map(t => math.evaluate(funcY, {t}));
-        const zValues = tValues.map(t => math.evaluate(funcZ, {t}));
+          if (isNaN(startT) || isNaN(endT) || startT >= endT) {
+            alert('Please enter a valid range for t.');
+            return;
+          }
 
-        const trace = {
-          x: xValues,
-          y: yValues,
-          z: zValues,
-          mode: 'lines',
-          type: 'scatter3d',
-          line: { width: 4, color: '#1f77b4' }
-        };
+          // Generate t values
+          const tValues = Array.from({ length: 100 }, (_, i) => startT + i * (endT - startT) / 99);
 
-        const layout = {
-          title: '3D Function Plot',
-          scene: {
-            xaxis: { title: 'X' },
-            yaxis: { title: 'Y' },
-            zaxis: { title: 'Z' }
-          },
-          margin: { l: 0, r: 0, b: 0, t: 40 }
-        };
+          // Evaluate functions using math.js
+          const xValues = tValues.map(t => math.evaluate(funcX, { t }));
+          const yValues = tValues.map(t => math.evaluate(funcY, { t }));
+          const zValues = tValues.map(t => math.evaluate(funcZ, { t }));
 
-        Plotly.newPlot('plot', [trace], layout);
+          // Create 3D plot
+          const trace = {
+            x: xValues,
+            y: yValues,
+            z: zValues,
+            mode: 'lines',
+            type: 'scatter3d',
+            line: { width: 4, color: '#1f77b4' }
+          };
+
+          const layout = {
+            title: '3D Function Plot',
+            scene: {
+              xaxis: { title: 'X' },
+              yaxis: { title: 'Y' },
+              zaxis: { title: 'Z' }
+            },
+            margin: { l: 0, r: 0, b: 0, t: 40 }
+          };
+
+          Plotly.newPlot('plot', [trace], layout);
+        } catch (error) {
+          alert('Error plotting function: ' + error.message);
+        }
       }
+
+      // Plot default twisted cubic on page load
+      window.onload = plotFunction;
     </script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
   </body>
 </html>
